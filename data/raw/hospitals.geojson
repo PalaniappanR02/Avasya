@@ -1,0 +1,38 @@
+{
+  "type": "FeatureCollection",
+  "name": "hospitals",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "hospital_id": "HOSP01",
+        "name": "District Hospital Demo",
+        "capacity": 300,
+        "data_source": "SYNTHETIC_DEMO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [80.225,13.405]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "hospital_id": "HOSP02",
+        "name": "Community Hospital Demo",
+        "capacity": 120,
+        "data_source": "SYNTHETIC_DEMO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [80.195,13.425]
+      }
+    }
+  ]
+}

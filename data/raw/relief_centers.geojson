@@ -1,0 +1,54 @@
+{
+  "type": "FeatureCollection",
+  "name": "relief_centers",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "center_id": "RC01",
+        "name": "Relief Center North",
+        "capacity": 1800,
+        "water_available": true,
+        "data_source": "SYNTHETIC_DEMO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [80.225,13.425]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "center_id": "RC02",
+        "name": "Relief Center Central",
+        "capacity": 1200,
+        "water_available": true,
+        "data_source": "SYNTHETIC_DEMO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [80.225,13.395]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "center_id": "RC03",
+        "name": "Relief Center East",
+        "capacity": 900,
+        "water_available": false,
+        "data_source": "SYNTHETIC_DEMO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [80.245,13.415]
+      }
+    }
+  ]
+}

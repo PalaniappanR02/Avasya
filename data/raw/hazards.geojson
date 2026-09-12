@@ -1,0 +1,24 @@
+{
+  "type": "FeatureCollection",
+  "name": "synthetic_flood_hazard",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "hazard_type": "flood",
+        "hazard_level": "high",
+        "data_source": "SYNTHETIC_DEMO"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[80.205,13.395],[80.215,13.395],[80.215,13.415],[80.205,13.415],[80.205,13.395]]]
+      }
+    }
+  ]
+}

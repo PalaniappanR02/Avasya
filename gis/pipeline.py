@@ -1,11 +1,11 @@
 from __future__ import annotations
 
+import argparse
 import importlib.util
 import json
-import argparse
 import sys
-from urllib.request import Request, urlopen
 from pathlib import Path
+from urllib.request import Request, urlopen
 
 import geopandas as gpd
 import pandas as pd
@@ -14,6 +14,7 @@ import pandas as pd
 BASE_DIR = Path(__file__).resolve().parent.parent
 RAW_DIR = BASE_DIR / "data" / "raw"
 OUTPUT_FILE = BASE_DIR / "data" / "habitation_evidence.json"
+
 OVERPASS_URL = "https://overpass-api.de/api/interpreter"
 THANJAVUR_BBOX = (10.2, 78.7, 11.3, 79.9)
 
@@ -91,7 +92,9 @@ def load_gis_dataset(
 
 def fetch_thanjavur_roads() -> Path:
     """Fetch OSM road ways for Thanjavur district via Overpass."""
+
     south, west, north, east = THANJAVUR_BBOX
+
     query = f"""
 [out:json][timeout:180];
 (
@@ -103,7 +106,9 @@ out tags geom;
     request = Request(
         OVERPASS_URL,
         data=query.encode("utf-8"),
-        headers={"Content-Type": "application/x-www-form-urlencoded"},
+        headers={
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
         method="POST",
     )
 
@@ -111,12 +116,15 @@ out tags geom;
         payload = json.load(response)
 
     features = []
+
     for element in payload.get("elements", []):
         geometry = element.get("geometry", [])
+
         if len(geometry) < 2:
             continue
 
         tags = element.get("tags", {})
+
         features.append(
             {
                 "type": "Feature",
@@ -137,17 +145,28 @@ out tags geom;
         )
 
     if not features:
-        raise ValueError("Overpass returned no usable road geometries")
+        raise ValueError(
+            "Overpass returned no usable road geometries"
+        )
 
-    output_path = RAW_DIR / "roads_thanjavur_overpass.geojson"
-    with output_path.open("w", encoding="utf-8") as file:
+    output_path = (
+        RAW_DIR / "roads_thanjavur_overpass.geojson"
+    )
+
+    with output_path.open(
+        "w",
+        encoding="utf-8",
+    ) as file:
+
         json.dump(
             {
                 "type": "FeatureCollection",
                 "name": "thanjavur_osm_roads",
                 "crs": {
                     "type": "name",
-                    "properties": {"name": "EPSG:4326"},
+                    "properties": {
+                        "name": "EPSG:4326"
+                    },
                 },
                 "features": features,
             },
@@ -155,7 +174,11 @@ out tags geom;
             indent=2,
         )
 
-    print(f"Fetched {len(features)} roads from OpenStreetMap Overpass API")
+    print(
+        f"Fetched {len(features)} roads "
+        "from OpenStreetMap Overpass API"
+    )
+
     return output_path
 
 
@@ -318,10 +341,15 @@ def calculate_road_accessibility(
         ).min()
 
         distance_km = float(distance / 1000)
-        distances.append(round(distance_km, 2))
 
-        # Closer roads receive higher accessibility; the score remains in [0, 1].
-        accessibility.append(1.0 / (1.0 + distance_km))
+        distances.append(
+            round(distance_km, 2)
+        )
+
+        # Closer roads receive higher accessibility.
+        accessibility.append(
+            1.0 / (1.0 + distance_km)
+        )
 
     result = habitations.copy()
 
@@ -362,20 +390,28 @@ def add_relief_centres(
 
         nearest_index = distances.idxmin()
 
-        nearest_center = projected_centers.loc[nearest_index]
+        nearest_center = projected_centers.loc[
+            nearest_index
+        ]
 
         nearest_ids.append(
             str(nearest_center["center_id"])
         )
+
         nearest_capacities.append(
             int(nearest_center["capacity"])
         )
+
         nearest_water_availability.append(
             bool(nearest_center["water_available"])
         )
 
     result["nearest_relief_center_id"] = nearest_ids
-    result["nearest_relief_center_capacity"] = nearest_capacities
+
+    result["nearest_relief_center_capacity"] = (
+        nearest_capacities
+    )
+
     result["nearest_relief_center_water_available"] = (
         nearest_water_availability
     )
@@ -409,7 +445,9 @@ def save_evidence(
     )
 
 
-def main(fetch_real_roads: bool = False) -> None:
+def main(
+    fetch_real_roads: bool = False,
+) -> None:
 
     print(
         "=== AVASYA P4 MULTI-SOURCE GIS PIPELINE ==="
@@ -430,8 +468,11 @@ def main(fetch_real_roads: bool = False) -> None:
     )
 
     roads_filename = "roads.geojson"
+
     if fetch_real_roads:
-        roads_filename = fetch_thanjavur_roads().name
+        roads_filename = (
+            fetch_thanjavur_roads().name
+        )
 
     roads = load_gis_dataset(
         roads_filename,
@@ -598,10 +639,20 @@ def main(fetch_real_roads: bool = False) -> None:
 
 
 if __name__ == "__main__":
+
     parser = argparse.ArgumentParser()
+
     parser.add_argument(
         "--fetch-real-roads",
         action="store_true",
-        help="Fetch Thanjavur roads from OpenStreetMap Overpass API",
+        help=(
+            "Fetch Thanjavur roads from "
+            "OpenStreetMap Overpass API"
+        ),
     )
-    main(fetch_real_roads=parser.parse_args().fetch_real_roads)
+
+    main(
+        fetch_real_roads=(
+            parser.parse_args().fetch_real_roads
+        )
+    )

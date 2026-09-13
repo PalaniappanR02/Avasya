@@ -41,7 +41,16 @@ The files are structured so that appropriately licensed real datasets can replac
 - **Technique applied:** Reprojection to EPSG:32643, nearest-geometry distance calculation in metres, conversion to kilometres, and inverse-distance normalization.
 - **Evidence produced:** `nearest_road_distance_km` and `road_accessibility`, where closer roads receive higher scores in `[0, 1]`.
 
-### 4. `hospitals.geojson`
+### 4. `roads_thanjavur_overpass.geojson` (optional real-data replacement)
+
+- **Purpose:** Provides mapped road ways for the Thanjavur district area when the pipeline is run with `--fetch-real-roads`.
+- **Source:** OpenStreetMap contributors, retrieved through the Overpass API endpoint `https://overpass-api.de/api/interpreter`.
+- **Status:** Real volunteered geographic data; not government data. Each feature is labelled `data_source: OpenStreetMap Overpass API`.
+- **CRS:** EPSG:4326 (WGS84).
+- **Main fields used:** `geometry`, `road_id`, and `road_type`.
+- **Fallback:** Without `--fetch-real-roads`, the pipeline continues to use `roads.geojson` with `SYNTHETIC_DEMO` records.
+
+### 5. `hospitals.geojson`
 
 - **Purpose:** Represents hospital locations used to estimate the nearest hospital distance for each habitation.
 - **Source:** Synthetic demo hospital points created for the AVASYA MVP.
@@ -51,7 +60,7 @@ The files are structured so that appropriately licensed real datasets can replac
 - **Technique applied:** Reprojection to EPSG:32643 and nearest-point distance calculation in metres, converted to kilometres.
 - **Evidence produced:** `hospital_distance_km`.
 
-### 5. `relief_centers.geojson`
+### 6. `relief_centers.geojson`
 
 - **Purpose:** Represents relief-centre locations and supporting capacity information for habitation-level emergency evidence.
 - **Source:** Synthetic demo relief-centre points created for the AVASYA MVP.
@@ -61,7 +70,7 @@ The files are structured so that appropriately licensed real datasets can replac
 - **Technique applied:** Reprojection to EPSG:32643, nearest-centre distance calculation, and nearest-record attribute lookup.
 - **Evidence produced:** `nearest_relief_center_id`, `nearest_relief_center_distance_km`, `nearest_relief_center_capacity`, and `nearest_relief_center_water_available`.
 
-### 6. `population.csv`
+### 7. `population.csv`
 
 - **Purpose:** Provides habitation-level population and vulnerability attributes.
 - **Source:** Synthetic demo tabular records created for the AVASYA MVP.
@@ -71,7 +80,7 @@ The files are structured so that appropriately licensed real datasets can replac
 - **Technique applied:** CSV loading, numeric conversion, one-to-one join to habitation records, and population validation.
 - **Evidence produced:** `population` and `vulnerability`.
 
-### 7. `historical_events.csv`
+### 8. `historical_events.csv`
 
 - **Purpose:** Records prior hazard events associated with each habitation.
 - **Source:** Synthetic demo event history created for the AVASYA MVP.

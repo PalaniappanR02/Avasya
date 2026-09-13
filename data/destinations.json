@@ -1,0 +1,72 @@
+[
+  {
+    "destination_id": "RC01",
+    "name": "Relief Center North",
+    "nominal_capacity": 1800,
+    "existing_occupancy": 300,
+    "water_available": true,
+    "sanitation_ok": true,
+    "healthcare_distance_km": 2.2,
+    "road_access": 0.9,
+    "geometry": { "type": "Point", "coordinates": [80.225, 13.425] },
+    "district": "Thanjavur",
+    "data_source": "SYNTHETIC_DEMO",
+    "data_quality": "SYNTHETIC_DEMO"
+  },
+  {
+    "destination_id": "RC02",
+    "name": "Relief Center Central",
+    "nominal_capacity": 1200,
+    "existing_occupancy": 200,
+    "water_available": true,
+    "sanitation_ok": true,
+    "healthcare_distance_km": 1.1,
+    "road_access": 0.95,
+    "geometry": { "type": "Point", "coordinates": [80.225, 13.395] },
+    "district": "Thanjavur",
+    "data_source": "SYNTHETIC_DEMO",
+    "data_quality": "SYNTHETIC_DEMO"
+  },
+  {
+    "destination_id": "RC03",
+    "name": "Relief Center East",
+    "nominal_capacity": 900,
+    "existing_occupancy": 150,
+    "water_available": false,
+    "sanitation_ok": false,
+    "healthcare_distance_km": 5.6,
+    "road_access": 0.6,
+    "geometry": { "type": "Point", "coordinates": [80.245, 13.415] },
+    "district": "Thanjavur",
+    "data_source": "SYNTHETIC_DEMO",
+    "data_quality": "SYNTHETIC_DEMO"
+  },
+  {
+    "destination_id": "RC04",
+    "name": "Relief Center West",
+    "nominal_capacity": 1500,
+    "existing_occupancy": 700,
+    "water_available": true,
+    "sanitation_ok": true,
+    "healthcare_distance_km": 3.0,
+    "road_access": 0.8,
+    "geometry": { "type": "Point", "coordinates": [80.190, 13.400] },
+    "district": "Thanjavur",
+    "data_source": "SYNTHETIC_DEMO",
+    "data_quality": "SYNTHETIC_DEMO"
+  },
+  {
+    "destination_id": "RC05",
+    "name": "Relief Center South",
+    "nominal_capacity": 700,
+    "existing_occupancy": 50,
+    "water_available": true,
+    "sanitation_ok": true,
+    "healthcare_distance_km": 4.5,
+    "road_access": 0.5,
+    "geometry": { "type": "Point", "coordinates": [80.250, 13.430] },
+    "district": "Thanjavur",
+    "data_source": "SYNTHETIC_DEMO",
+    "data_quality": "SYNTHETIC_DEMO"
+  }
+]

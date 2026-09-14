@@ -14,6 +14,7 @@ import pandas as pd
 BASE_DIR = Path(__file__).resolve().parent.parent
 RAW_DIR = BASE_DIR / "data" / "raw"
 OUTPUT_FILE = BASE_DIR / "data" / "habitation_evidence.json"
+GEOJSON_OUTPUT_FILE = BASE_DIR / "data" / "habitation_evidence.geojson"
 OVERPASS_URL = "https://overpass-api.de/api/interpreter"
 THANJAVUR_BBOX = (10.2, 78.7, 11.3, 79.9)
 
@@ -409,6 +410,46 @@ def save_evidence(
     )
 
 
+def save_evidence_geojson(
+    records: list[dict],
+) -> None:
+
+    features = []
+    for record in records:
+        geometry = record["geometry"]
+        properties = {
+            key: value
+            for key, value in record.items()
+            if key != "geometry"
+        }
+        features.append(
+            {
+                "type": "Feature",
+                "geometry": geometry,
+                "properties": properties,
+            }
+        )
+
+    with GEOJSON_OUTPUT_FILE.open(
+        "w",
+        encoding="utf-8",
+    ) as file:
+
+        json.dump(
+            {
+                "type": "FeatureCollection",
+                "features": features,
+            },
+            file,
+            indent=2,
+        )
+
+    print(
+        f"Saved {len(features)} habitation GeoJSON features "
+        f"to {GEOJSON_OUTPUT_FILE}"
+    )
+
+
 def main(fetch_real_roads: bool = False) -> None:
 
     print(
@@ -591,6 +632,7 @@ def main(fetch_real_roads: bool = False) -> None:
     # --------------------------------------------------
 
     save_evidence(records)
+    save_evidence_geojson(records)
 
     print(
         "Pipeline completed successfully"

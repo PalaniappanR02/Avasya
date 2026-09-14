@@ -1,0 +1,150 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.205,
+          13.405
+        ]
+      },
+      "properties": {
+        "habitation_id": "H001",
+        "name": "Krishnapuram Village",
+        "population": 1240,
+        "population_exposed": 620.01,
+        "hazard_exposure": 0.5,
+        "vulnerability": 0.71,
+        "historical_events": 3,
+        "hospital_distance_km": 1.63,
+        "nearest_road_distance_km": 0.0,
+        "road_accessibility": 1.0,
+        "nearest_relief_center_id": "RC02",
+        "nearest_relief_center_distance_km": 1.72,
+        "nearest_relief_center_capacity": 1200,
+        "nearest_relief_center_water_available": true,
+        "district": "Thanjavur",
+        "data_source": "SYNTHETIC_DEMO",
+        "data_quality": "SYNTHETIC_DEMO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.215,
+          13.405
+        ]
+      },
+      "properties": {
+        "habitation_id": "H002",
+        "name": "Lakshmipuram Village",
+        "population": 980,
+        "population_exposed": 489.99,
+        "hazard_exposure": 0.5,
+        "vulnerability": 0.62,
+        "historical_events": 2,
+        "hospital_distance_km": 0.54,
+        "nearest_road_distance_km": 0.0,
+        "road_accessibility": 1.0,
+        "nearest_relief_center_id": "RC02",
+        "nearest_relief_center_distance_km": 0.78,
+        "nearest_relief_center_capacity": 1200,
+        "nearest_relief_center_water_available": true,
+        "district": "Thanjavur",
+        "data_source": "SYNTHETIC_DEMO",
+        "data_quality": "SYNTHETIC_DEMO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.205,
+          13.415
+        ]
+      },
+      "properties": {
+        "habitation_id": "H003",
+        "name": "Ramanathapuram Village",
+        "population": 760,
+        "population_exposed": 190.0,
+        "hazard_exposure": 0.25,
+        "vulnerability": 0.48,
+        "historical_events": 1,
+        "hospital_distance_km": 0.78,
+        "nearest_road_distance_km": 0.56,
+        "road_accessibility": 0.6431,
+        "nearest_relief_center_id": "RC01",
+        "nearest_relief_center_distance_km": 1.72,
+        "nearest_relief_center_capacity": 1800,
+        "nearest_relief_center_water_available": true,
+        "district": "Thanjavur",
+        "data_source": "SYNTHETIC_DEMO",
+        "data_quality": "SYNTHETIC_DEMO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.225,
+          13.415
+        ]
+      },
+      "properties": {
+        "habitation_id": "H004",
+        "name": "Meenakshipuram Village",
+        "population": 650,
+        "population_exposed": 0.0,
+        "hazard_exposure": 0.0,
+        "vulnerability": 0.39,
+        "historical_events": 0,
+        "hospital_distance_km": 0.56,
+        "nearest_road_distance_km": 0.56,
+        "road_accessibility": 0.643,
+        "nearest_relief_center_id": "RC01",
+        "nearest_relief_center_distance_km": 0.56,
+        "nearest_relief_center_capacity": 1800,
+        "nearest_relief_center_water_available": true,
+        "district": "Thanjavur",
+        "data_source": "SYNTHETIC_DEMO",
+        "data_quality": "SYNTHETIC_DEMO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.235,
+          13.415
+        ]
+      },
+      "properties": {
+        "habitation_id": "H005",
+        "name": "Vijayapuram Village",
+        "population": 520,
+        "population_exposed": 0.0,
+        "hazard_exposure": 0.0,
+        "vulnerability": 0.31,
+        "historical_events": 1,
+        "hospital_distance_km": 0.78,
+        "nearest_road_distance_km": 0.78,
+        "road_accessibility": 0.5628,
+        "nearest_relief_center_id": "RC03",
+        "nearest_relief_center_distance_km": 0.54,
+        "nearest_relief_center_capacity": 900,
+        "nearest_relief_center_water_available": false,
+        "district": "Thanjavur",
+        "data_source": "SYNTHETIC_DEMO",
+        "data_quality": "SYNTHETIC_DEMO"
+      }
+    }
+  ]
+}
